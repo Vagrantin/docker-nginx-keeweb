@@ -76,6 +76,8 @@ RUN set -x \
             && cp ${tempDir}/.abuild/abuild-key.rsa.pub /etc/apk/keys/ \
             && apk del --no-network .build-deps \
             && apk add -X ${tempDir}/packages/alpine/ --no-cache $nginxPackages \
+            && wget "https://github.com/keeweb/keeweb/releases/download/v1.18.7/KeeWeb-1.18.7.html.zip" --directory-prefix=/tmp \
+            && unzip "/tmp/KeeWeb-1.18.7.html.zip" -d   /usr/share/nginx/html \
             ;; \
     esac \
 # remove checksum deps
